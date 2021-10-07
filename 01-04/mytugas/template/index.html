@@ -1,0 +1,24 @@
+
+    <body>
+   <h1>
+       selamat datang di django
+   </h1>
+   <p>
+       login
+   </p> 
+        
+    </body>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="name">
+        <button type="submit">simpan </button>
+    </form>
+    {% for d in isi %}
+        <h1>
+            {{d.name}}
+        </h1>
+    {% endfor %}
+<div>
+
+</div>
