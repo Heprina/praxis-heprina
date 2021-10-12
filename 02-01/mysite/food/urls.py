@@ -1,8 +1,11 @@
-from django.contrib import admin
 from django.urls import path
-from django.urls.conf import include
+
 from . import views
 
-urlpatterns = [
-    path('', views.index),
+urlpatterns =  [
+    path('', views.index, name='index'),
+    # path('hapus/<id>/',views.hapus),
+    # path('detail/<id>/',views.detail),
+    # path('edit/<id>/',views.edit),
+    
 ]
