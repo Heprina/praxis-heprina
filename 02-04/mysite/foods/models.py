@@ -14,5 +14,5 @@ class minuman(models.Model):
     harga = models.IntegerField()
 
 class home (models.Model):
-    nama_makanan = models.ForeignKey(makanan, on_delete=CASCADE)
-    nama_minuman = models.ForeignKey(minuman, on_delete=CASCADE)
+    data_makanan = models.ForeignKey(makanan, on_delete=CASCADE)
+    data_minuman = models.ForeignKey(minuman, on_delete=CASCADE)

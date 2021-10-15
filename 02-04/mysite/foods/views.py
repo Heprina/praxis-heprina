@@ -17,7 +17,7 @@ def input_makanan(req):
             jenis = req.POST['jenis'],
             harga = req.POST['harga']           
         )
-        return redirect('foods/')
+        return redirect('/foods')
     makanan = models.makanan.objects.all()
     return render (req, 'index.makanan/index.html', {
         'data_makanan' :makanan,
@@ -31,19 +31,51 @@ def input_minuman(req):
             jenis = req.POST['jenis'],
             harga = req.POST['harga']           
         )
-        return redirect('minum/')
-    minuman = models.makanan.objects.all()
+        return redirect('/drink')
+    minuman = models.minuman.objects.all()
     return render (req, 'index.minuman/index.html', {
         'data_minuman' :minuman,
         })
 
-def hapus(request, id):
+def hapusmakanan(request, id):
     models.makanan.objects.filter(pk=id).delete()
-    return redirect('foods/')
+    return redirect('/foods')
+
+def hapusminuman(request, id):
+    models.minuman.objects.filter(pk=id).delete()
+    return redirect('/drink')
 
 def menu_utama (req, id):
     menu = models.makanan.objects.filter(pk=id).first()
-    return render (request, 'detail.html', {
+    return render (request, 'home.html', {
         'menu' :menu
     })
 
+def editmakanan(request, id):
+    if request.POST:
+        models.makanan.objects.filter(id=id).update(
+            nama = request.POST['nama'],
+            jenis = request.POST['jenis'],
+            harga = request.POST['harga']           
+        )
+        return redirect('/foods')
+
+    data = models.makanan.objects.filter(id=id).first()
+    return render (request, "index.makanan/index.html", {
+        "data_makanan":editmakanan,
+    })
+
+
+def editminuman(request, id):
+    if request.POST:
+        models.minuman.objects.filter(id=id).update(
+            nama = request.POST['nama'],
+            jenis = request.POST['jenis'],
+            harga = request.POST['harga']           
+        )
+        return redirect('/drink')
+
+    data = models.minuman.objects.filter(id=id).first()
+    return render (request, "index.minuman/index.html", {
+        "data_minuman":editminuman,
+    })

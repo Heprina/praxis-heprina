@@ -10,18 +10,16 @@
 <body>
     <center>
         <div class="mt-5">
-            <h1>menu utama</h1>
-            <h2> chiken foods</h2>
-            <div class="mt-5">
-
+            <h1>welcome</h1>
+            <h2> Setarbac Foods</h2>
+        <div class="mt-5">
+    </center>
                 <a type="button" class="btn btn-warning" href="foods"> daftar makanan</a>
                 <a type="button" class="btn btn-warning" href="drink"> daftar minuman</a>
-                <a type="button" class="btn btn-success" href="pesan"> pesan </a>
+                <a type="button" class="btn btn-success" href="pesan"> tambah</a>
         </div>
-    </center> 
-
-    <div></div>
-    <table class="table ">
+        <div></div>
+    <table class= "table table-bordered">
         <thead>
             <tr>
                 <th scope="col">no</th>
@@ -38,9 +36,11 @@
                 <td>{{i.hapus}}</td>
                 <td>{{i.edit}}</td>
                 <td>{{i.detail}}</td>
-                <td><a href="hapus{{i.id}}"><button type="button" class="btn btn-info">hapus</button></a></td>
-                <td><a href="edit{{i.id}}"><button type="button" class="btn btn-danger">edit</button></a></td>
-                <td><a href="detail{{i.id}}"><button type="button" class="btn btn-success">detail</button></a></td>
+                <div>
+                <a href="hapus/{{i.id}}"><button type="button" class="btn btn-info">hapus</button></a>
+                <a href="edit/{{i.id}}"><button type="button" class="btn btn-danger">edit</button></a>
+                <a href="detail{{i.id}}"><button type="button" class="btn btn-success">detail</button></a>
+            </div>
             </tr>
             {% endfor %}
         </tbody>
